@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container{
+            width: 100%;
+            height: 100vh;
+            background-color: lightgoldenrodyellow;
+            position: relative;
+        }
+        #slide1{
+            background: url(../HTML5/img/Natures/01.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        #slide2{
+            background: url(../HTML5/img/Natures/02.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        #slide3{
+            background: url(../HTML5/img/Natures/03.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .mySlides{            
+            width: 80%;
+            height: 350px;
+            margin: auto;
+            transition: 3s;
+            animation: img 2s 1s;
+        }        
+        a{
+            position: absolute;
+            top: 23%;            
+            /* background-color: rgba(0, 0, 0, 0.2); */
+            background-color: transparent;
+            color: seashell;
+            border-radius: 5px;
+            font-size: 2em;
+            padding: .2em .3em;
+            cursor: pointer;
+            font-weight: bold;
+        }        
+        a:hover{
+            background-color: lightblue;
+            color: black;
+        }        
+        .fade{
+            animation: fade 2s;
+        }
+        @keyframes fade{
+            from{opacity: .4;}
+            to{opacity: 1;}
+        }
+        #prev{
+            left: 10%;
+        }
+        #next{
+            left: 87.3%;
+        }
+        .mySlides span{
+            font-size: 1.8em;
+            color: seashell;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="mySlides fade" id="slide1">
+            <span>1/3</span>
+        </div>
+
+        <div class="mySlides fade" id="slide2">
+            <span>2/3</span>
+        </div>
+        
+        <div class="mySlides fade" id="slide3">
+            <span>3/3</span>
+        </div>
+
+        <a id="prev" onclick="plusSlides(-1)"><</a>
+        <a id="next" onclick="plusSlides(1)">></a>
+    </div>
+    
+    <script src="slider.js"></script>
+    <script>
+        var slides = document.getElementsByClassName("mySlides");
+        
+        var slideIndex = 1;
+        
+        showSlides(slideIndex);
+
+        function plusSlides(n)
+        {
+            showSlides(slideIndex = slideIndex + n);
+        }
+
+        function showSlides(n)
+        {
+            for(i=0;i<slides.length;i++)
+            {
+                slides[i].style.display = 'none';
+            }            
+            var i;
+            if(n > slides.length)
+            {
+                slideIndex = 1;
+            }
+            if(n < 1)
+            {
+                slideIndex = slides.length;
+            }            
+            slides[slideIndex - 1].style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
